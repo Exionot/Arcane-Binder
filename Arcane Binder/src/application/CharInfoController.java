@@ -9,14 +9,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
 
 public class CharInfoController {
 	@FXML private ImageView charProfileImageView;
@@ -34,10 +31,10 @@ public class CharInfoController {
 		
 		if (character.getRelations() != null) {
 			for (model.Character relations : character.getRelations()) {
-				displayCards("SmallCharCard", relationsContainer, CardController.class, controller -> {
+				CardController.displayCards("SmallCharCard", relationsContainer, CardController.class, controller -> {
 					controller.setCardData(relations.getProfileImg(), relations.getName());
 				}, () -> {
-					openCharInfo(relations, homePanel);
+					CardController.openCharInfo(relations, homePanel);
 				});
 			}
 		}
@@ -45,10 +42,10 @@ public class CharInfoController {
 		if (character.getAllImages() != null) {
 			imagesLabel.setVisible(true);
 			for (String path : character.getAllImages()) {
-				displayCards("GalleryCard", imageContainer, CardController.class, controller -> {
+				CardController.displayCards("GalleryCard", imageContainer, CardController.class, controller -> {
 					controller.setCardData(path);
 				}, () -> {
-					openImage(path);
+					CardController.openImage(path);
 				});
 			}
 		}
@@ -56,10 +53,10 @@ public class CharInfoController {
 		if (character.getAllPosters() != null) {
 			postersLabel.setVisible(true);
 			for (String path : character.getAllPosters()) {
-				displayCards("GalleryCard", posterContainer, CardController.class, controller -> {
+				CardController.displayCards("GalleryCard", posterContainer, CardController.class, controller -> {
 					controller.setCardData(path);
 				}, () -> {
-					openImage(path);
+					CardController.openImage(path);
 				});
 			}
 		}
@@ -72,33 +69,11 @@ public class CharInfoController {
 				Desktop.getDesktop().browse(openedCharacter.getSheetPath());
 			}else {
 				Desktop.getDesktop().browse(new URI(Main.VAULT_LINK));
-				Thread.sleep(4000);
+				Thread.sleep(5000);
 				Desktop.getDesktop().browse(openedCharacter.getSheetPath());
 			}
         } catch (IOException | InterruptedException | URISyntaxException e) {
 			e.printStackTrace();
-		}
-	}
-	
-	private void openImage(String path) {
-		try {
-			Desktop.getDesktop().open(
-			        new File(path)
-			    );
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private void openCharInfo(model.Character character, ScrollPane homePanel) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(application.Main.FXML_DIR + "CharInfoView.fxml"));
-			ScrollPane panel = loader.load();
-			CharInfoController controller = loader.getController();
-			controller.setData(character, homePanel);
-			homePanel.setContent(panel);
-		} catch (Exception e1) {
-			e1.printStackTrace();
 		}
 	}
 	
@@ -120,23 +95,5 @@ public class CharInfoController {
         return false;
 	}
 	
-	private <Controller> void displayCards(String fxml, FlowPane container, Class<Controller> controllerClass, java.util.function.Consumer<Controller> controllerAction, Runnable onClick) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(application.Main.FXML_DIR + fxml + ".fxml"));
-			VBox card = loader.load();
-			Controller controller = loader.getController();
-			if (controllerAction != null) {
-	            controllerAction.accept(controller);
-	        }
-			card.setPickOnBounds(true);
-			card.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-				event.consume();
-				onClick.run();
-			});
-
-			container.getChildren().add(card);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-	}
+	
 }

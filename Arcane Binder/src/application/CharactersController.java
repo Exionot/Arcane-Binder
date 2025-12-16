@@ -3,9 +3,9 @@ package application;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
 import java.util.List;
 
+import dao.CharacterDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
@@ -20,7 +20,7 @@ public class CharactersController{
 
 	public void refresh(ScrollPane homePanel) {
 		try {
-			allCharacters = new dao.CharacterDAO(Path.of(application.Main.CHAR_DIR)).getCharacters();
+			allCharacters = CharacterDAO.getDao().getAllCharacters();
 		} catch (IOException | URISyntaxException e) {
 			e.printStackTrace();
 		}

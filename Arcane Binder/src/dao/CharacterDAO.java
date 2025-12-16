@@ -17,13 +17,29 @@ import application.Main;
 
 public class CharacterDAO {
 	
+	public static CharacterDAO dao;
 	private final Path charDir;
+	private List<model.Character> allCharacters;
 
-    public CharacterDAO(Path charDir) {
-        this.charDir = charDir;
+    private CharacterDAO() throws IOException, URISyntaxException {
+        this.charDir = Path.of(application.Main.CHAR_DIR);
+        this.allCharacters = getCharacters();
+    }
+    
+    public static CharacterDAO getDao() throws IOException, URISyntaxException {
+    	if (dao == null) {
+    		dao = new CharacterDAO();
+    	}
+		return dao;
+    }
+    
+    public List<model.Character> getAllCharacters() { return this.allCharacters; }
+    
+    public void refreshCharacters() throws IOException, URISyntaxException {
+    	this.allCharacters = getCharacters();
     }
 	
-	public List<Path> getFiles() throws IOException{
+	private List<Path> getFiles() throws IOException{
 		return Files.list(charDir)
                 .filter(Files::isRegularFile)
                 .filter(p -> p.getFileName().toString().endsWith(".md"))
@@ -31,7 +47,7 @@ public class CharacterDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<model.Character> getCharacters() throws IOException, URISyntaxException {
+	private List<model.Character> getCharacters() throws IOException, URISyntaxException {
 		List<Path> charPaths = getFiles();
 		
 		Map<String, model.Character> characters = new HashMap<>();
