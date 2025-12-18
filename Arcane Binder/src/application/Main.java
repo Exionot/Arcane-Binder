@@ -17,6 +17,20 @@ public class Main extends Application {
 	public static final String VAULT_DIR = "C:/Exionot/Vaults/World Building/"; 
 	public static final String VAULT_LINK = "obsidian://open?World%20Building=Vaults&file=";
 	public static final String CHAR_DIR = VAULT_DIR + "Arcane-Bound/Worlds Collide/01 Characters/";
+	public static final String LOCAL_DIR;
+	static {
+	    try {
+	        String userHome = System.getProperty("user.home");
+	        File uploadDir = new File(userHome, "Arcane Binder");
+	        if (!uploadDir.exists()) {
+	            uploadDir.mkdirs();
+	        }
+	        LOCAL_DIR = uploadDir.getAbsolutePath() + File.separator;
+	    } catch (Exception e) {
+	        throw new RuntimeException("Failed to initialize upload directory", e);
+	    }
+	}
+	public static final model.Config config = dao.ConfigDAO.getDAO().getConfig();
 	
 	public static final String getRootDir(String folderName) {
 		try {
