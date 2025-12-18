@@ -65,6 +65,7 @@ public class Main extends Application {
 					return;
 				});
 				namePrompt.showAndWait();
+				dao.ConfigDAO.getDAO().setConfig(dao.ConfigDAO.Property.FIRST_BOOT, "false");
 			}
 			primaryStage.show();
 		} catch(Exception e) {
