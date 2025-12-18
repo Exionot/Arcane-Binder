@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextInputDialog;
 
 
 public class Main extends Application {
@@ -57,6 +58,14 @@ public class Main extends Application {
 			System.out.println(GLOBAL_CSS);
 			scene.getStylesheets().add(GLOBAL_CSS);
 			primaryStage.setScene(scene);
+			
+			if (config.isFirstBoot()) {
+				util.Modal namePrompt = new util.Modal(primaryStage, "UsernamePrompt", () -> {
+					System.exit(0);
+					return;
+				});
+				namePrompt.showAndWait();
+			}
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
