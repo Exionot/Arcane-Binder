@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Properties;
 
 public class ConfigDAO {
-	public static enum Property {
+	public static enum PropertyType {
 		FIRST_BOOT("app.first.boot"),
 		USERNAME("app.username"),
 		THEME("app.theme");
 		
 		private final String KEY;
 		
-		private Property(String key) {
+		private PropertyType(String key) {
 			this.KEY = key;
 		}
 		
@@ -42,7 +42,7 @@ public class ConfigDAO {
 	
 	public model.Config getConfig(){ return ConfigDAO.config; }
 	
-	public void setConfig(Property configProperty, String value) throws IOException {
+	public void setConfig(PropertyType configProperty, String value) throws IOException {
 		Path path = Paths.get(application.Main.LOCAL_DIR + "config.properties");
 		List<String> lines = Files.readAllLines(path);
 		

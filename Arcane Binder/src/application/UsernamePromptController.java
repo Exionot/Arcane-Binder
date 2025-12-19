@@ -27,7 +27,7 @@ public class UsernamePromptController {
 		}
 		
 		try {
-			dao.ConfigDAO.getDAO().setConfig(dao.ConfigDAO.Property.USERNAME, username);
+			dao.ConfigDAO.getDAO().setConfig(dao.ConfigDAO.PropertyType.USERNAME, username);
 			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.close();
 		} catch (IOException e) {
