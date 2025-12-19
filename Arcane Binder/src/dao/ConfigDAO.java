@@ -12,6 +12,19 @@ import java.util.List;
 import java.util.Properties;
 
 public class ConfigDAO {
+	public static class Property {
+		private PropertyType propertyType;
+		private String value;
+		public Property(PropertyType propertyType, Object value) {
+			this.propertyType = propertyType;
+			this.value = value.toString();
+		}
+		
+		public String getPropertyKey() { return this.propertyType.getKey(); }
+		public PropertyType getPropertyType() { return this.propertyType; }
+		public String getValue() { return this.value; }
+	}
+	
 	public static enum PropertyType {
 		FIRST_BOOT("app.first.boot"),
 		USERNAME("app.username"),
