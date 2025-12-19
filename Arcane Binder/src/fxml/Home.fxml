@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
 
 <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" mouseTransparent="true" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
@@ -14,11 +15,20 @@
          <top>
             <StackPane BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="welcomeLabel" text="Welcome Back, User">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
+                  <TextFlow textAlignment="CENTER">
+                     <children>
+                        <Label text="Welcome Back, ">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="welcomeLabel" layoutX="10.0" layoutY="10.0" text="User">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </TextFlow>
                </children>
                <BorderPane.margin>
                   <Insets />

@@ -30,7 +30,7 @@ public class Main extends Application {
 	        throw new RuntimeException("Failed to initialize upload directory", e);
 	    }
 	}
-	public static final model.Config config = dao.ConfigDAO.getDAO().getConfig();
+	public static model.Config config = dao.ConfigDAO.getDAO().getConfig();
 	
 	public static final String getRootDir(String folderName) {
 		try {
@@ -49,6 +49,10 @@ public class Main extends Application {
 	    }
 	}
 	
+	public static void updateConfig() {
+		config = dao.ConfigDAO.getDAO().getConfig();
+	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -64,8 +68,10 @@ public class Main extends Application {
 					return;
 				});
 				namePrompt.showAndWait();
-				dao.ConfigDAO.getDAO().setConfig(dao.ConfigDAO.Property.FIRST_BOOT, "false");
+				dao.ConfigDAO.getDAO().setConfig(dao.ConfigDAO.PropertyType.FIRST_BOOT, "false");
 			}
+			primaryStage.setResizable(false);
+			primaryStage.centerOnScreen();
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

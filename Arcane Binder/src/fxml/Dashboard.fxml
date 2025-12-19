@@ -37,6 +37,7 @@
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Home" />
             <Button fx:id="charactersButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Characters" />
             <Button fx:id="galleryButton" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Gallery" />
+            <Button fx:id="settingsButton" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Settings" />
          </children>
       </VBox>
    </left>

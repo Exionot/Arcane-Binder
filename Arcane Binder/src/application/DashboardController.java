@@ -12,7 +12,7 @@ import javafx.scene.control.ScrollPane;
 
 public class DashboardController implements Initializable{
 	@FXML private ScrollPane homePanel;
-	@FXML private Button homeButton, charactersButton, galleryButton;
+	@FXML private Button homeButton, charactersButton, galleryButton, settingsButton;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -22,8 +22,7 @@ public class DashboardController implements Initializable{
 	
 	public void changePanel(ActionEvent e) {
 		if (((Button)e.getSource()).getId() == homeButton.getId()) {
-			loadPanel("Home", HomeController.class, controller -> {
-			});
+			loadPanel("Home", HomeController.class, controller -> {});
 		}
 		else if (((Button)e.getSource()).getId() == charactersButton.getId()) {
 			loadPanel("Characters", CharactersController.class, controller -> {
@@ -33,6 +32,11 @@ public class DashboardController implements Initializable{
 		else if (((Button)e.getSource()).getId() == galleryButton.getId()) {
 			loadPanel("Gallery", GalleryController.class, controller -> {
 				controller.refresh(homePanel);
+			});
+		}
+		else if (((Button)e.getSource()).getId() == settingsButton.getId()) {
+			loadPanel("Settings", SettingsController.class, controller -> {
+//				controller.refresh(homePanel);
 			});
 		}
 	}

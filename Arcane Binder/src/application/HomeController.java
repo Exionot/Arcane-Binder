@@ -14,7 +14,7 @@ public class HomeController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		welcomeLabel.setText("Welcome Back, " + username);
+		welcomeLabel.setText(username);
 	}
 	
 }

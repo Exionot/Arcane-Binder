@@ -28,7 +28,8 @@ public class ConfigDAO {
 	public static enum PropertyType {
 		FIRST_BOOT("app.first.boot"),
 		USERNAME("app.username"),
-		THEME("app.theme");
+		THEME("app.theme"),
+		ACCENT("app.accent");
 		
 		private final String KEY;
 		
@@ -64,7 +65,6 @@ public class ConfigDAO {
 	        for (String line : lines) {
 	            if (line.startsWith(configProperty.getKey() + "=")) {
 	                writer.write(configProperty.getKey() + "=" + value);
-	                System.out.println(line);
 	            } else {
 	                writer.write(line);
 	            }
@@ -73,7 +73,7 @@ public class ConfigDAO {
 	    } 
 	}
 	
-	private void refreshConfig() {
+	public void refreshConfig() {
 		ConfigDAO.config = fetchConfig();
 	}
 	
@@ -86,12 +86,12 @@ public class ConfigDAO {
 		try (FileInputStream input = new FileInputStream(configFile)){
 			configProperty.load(input);
 			
-			
 			model.Config configObj = new model.Config(
 					Boolean.parseBoolean(configProperty.getProperty("app.first.boot")), 
 					configProperty.getProperty("app.username"), 
-					configProperty.getProperty("app.theme") == "light" ? false : 
-						configProperty.getProperty("app.theme") == "dark" ? true : false
+					configProperty.getProperty("app.theme").equals("Light") ? false : 
+						configProperty.getProperty("app.theme").equals("Dark") ? true : false,
+					configProperty.getProperty("app.accent")
 					);
 			
 			return configObj;
