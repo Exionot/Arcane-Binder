@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
+   <top>
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/Matthew/Downloads/Arcaena%20Mint%20wBackground.png" />
+               </image>
+            </ImageView>
+            <Label text="Arcane Binder">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Home" />
+            <Button fx:id="charactersButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Characters" />
+            <Button fx:id="galleryButton" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Gallery" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <ScrollPane fx:id="homePanel" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

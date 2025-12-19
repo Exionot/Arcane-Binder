@@ -53,7 +53,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR+"Home.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR+"Dashboard.fxml"));
 			Scene scene = new Scene(root);
 			System.out.println(GLOBAL_CSS);
 			scene.getStylesheets().add(GLOBAL_CSS);
