@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import dao.ConfigDAO.Property;
 import dao.ConfigDAO.PropertyType;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
@@ -68,7 +69,7 @@ public class SettingsController implements Initializable{
 		}
 	}
 	
-	public void previewAccent() {
+	public void previewAccent(ActionEvent e) {
 		Color selectedColor = accentColorPicker.getValue();
 		String newHex = String.format("%02X%02X%02X",
 		        (int)(selectedColor.getRed() * 255),
@@ -98,7 +99,7 @@ public class SettingsController implements Initializable{
 		initialize(null, null);
 	}
 	
-	public void applyChanges() {
+	public void applyChanges(ActionEvent event) {
 		changeList.replace(PropertyType.USERNAME, new Property(PropertyType.USERNAME, usernameField.getText().trim()));
 		
 		util.FancyAlert warning = new util.FancyAlert(AlertType.CONFIRMATION, "Apply Changes", "Apply Changes?");
@@ -118,5 +119,6 @@ public class SettingsController implements Initializable{
 		}
 		
 		initialize(null, null);
+		Main.refreshCss(((Button)event.getSource()).getScene().getRoot());
 	}
 }

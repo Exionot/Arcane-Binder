@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,13 +10,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class DashboardController implements Initializable{
 	@FXML private ScrollPane homePanel;
 	@FXML private Button homeButton, charactersButton, galleryButton, settingsButton;
+	@FXML private ImageView logoImageView;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		logoImageView.setImage(new Image(new File(Main.RESOURCE_DIR + "temp-logo.png").toURI().toString()));
+		
+		ColorAdjust adjust = new ColorAdjust();
+		adjust.setBrightness(0.2);
+		adjust.setContrast(0);
+		adjust.setSaturation(0);
+
+		logoImageView.setEffect(adjust);
+		
 		loadPanel("Home", HomeController.class, controller -> {
 		});
 	}

@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="main-container" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
    <top>
-      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
          <children>
-            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoImageView" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
                <image>
                   <Image url="@../../../../../Users/Matthew/Downloads/Arcaena%20Mint%20wBackground.png" />
                </image>
@@ -32,16 +32,41 @@
       </HBox>
    </top>
    <left>
-      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" styleClass="dash-menu" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Home" />
-            <Button fx:id="charactersButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Characters" />
-            <Button fx:id="galleryButton" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Gallery" />
-            <Button fx:id="settingsButton" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Settings" />
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Home">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="charactersButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Characters">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="galleryButton" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Gallery">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="settingsButton" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#changePanel" prefHeight="40.0" prefWidth="200.0" text="Settings">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </left>
    <center>
-      <ScrollPane fx:id="homePanel" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="homePanel" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" styleClass="panel-container" vbarPolicy="NEVER" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

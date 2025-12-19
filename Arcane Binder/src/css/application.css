@@ -1,1 +1,50 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root {
+	-dark-mode-primary: #121212;
+	-dark-mode-secondary: #2a2a2a;
+	-dark-mode-text-primary: #F0F0F0;
+	-light-mode-primary: #FAF9F6;
+	-light-mode-secondary: #e1e0dd;
+	-light-mode-text-primary: #000000;
+	
+	-primary: -light-mode-primary;
+	-secondary: -light-mode-secondary;
+	-text-primary: -light-mode-text-primary;
+	-accent-color: -light-mode-primary;
+	-accent-text: -text-primary;
+}
+
+.button{
+	-fx-background-color: -accent-color;
+	-fx-text-fill: -accent-text;
+	-fx-border-radius: 5px;
+}
+
+.label{
+	-fx-text-fill: -text-primary;
+}
+
+.logo{
+	-fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+
+.dash-menu .button{
+	-fx-background-color: -secondary;
+	-fx-text-fill: -text-primary;
+	-fx-alignment: center-left;
+	-fx-border-width: 0;
+	-fx-border-radius: 0;
+	-fx-background-radius: 0;
+}
+
+.main-container, .panel-container, .card-body{
+	-fx-background-color: -primary;
+}
+
+.dash-menu{
+	-fx-background-color: -secondary;
+}
+
+.dash-menu .button:hover{
+	-fx-background-color: -primary;
+}
