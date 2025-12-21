@@ -2,12 +2,16 @@ package application;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.ColorAdjust;
@@ -35,6 +39,12 @@ public class DashboardController implements Initializable{
 	}
 	
 	public void changePanel(ActionEvent e) {
+		List<Button> allButtons = new ArrayList<>(Arrays.asList(homeButton, charactersButton, galleryButton, settingsButton));
+		allButtons.forEach(button -> button.setStyle(null));
+		((Button)e.getSource()).setStyle(""
+				+ " -fx-background-color: -accent-color;"
+				+ " -fx-text-fill: -accent-text;");
+		
 		if (((Button)e.getSource()).getId() == homeButton.getId()) {
 			loadPanel("Home", HomeController.class, controller -> {});
 		}

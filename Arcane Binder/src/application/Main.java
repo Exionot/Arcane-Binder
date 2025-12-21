@@ -65,11 +65,13 @@ public class Main extends Application {
 		if (isDarkMode) {
 			stylesList.add("-primary: -dark-mode-primary;"
 					+ "	-secondary: -dark-mode-secondary;"
-					+ "	-text-primary: -dark-mode-text-primary;");
+					+ "	-text-primary: -dark-mode-text-primary;"
+					+ "	-text-secondary: -dark-mode-text-secondary;");
 		}else {
 			stylesList.add("-primary: -light-mode-primary;"
 					+ "	-secondary: -light-mode-secondary;"
-					+ "	-text-primary: -light-mode-text-primary;");
+					+ "	-text-primary: -light-mode-text-primary;"
+					+ "	-text-secondary: -light-mode-text-secondary;");
 			
 		}
 		
@@ -108,6 +110,7 @@ public class Main extends Application {
 			}
 			
 			refreshCss(root);
+			primaryStage.setTitle("Arcane Binder");
 			primaryStage.setResizable(false);
 			primaryStage.centerOnScreen();
 			primaryStage.show();

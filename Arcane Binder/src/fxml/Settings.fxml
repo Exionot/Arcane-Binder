@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="880.0" styleClass="panel-container" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="application.SettingsController">
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="880.0" styleClass="panel-container" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SettingsController">
    <content>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-container">
          <top>
@@ -62,12 +62,12 @@
                                     </Label>
                                     <TextFlow prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="Change your current username: ">
+                                          <Label styleClass="secondary" text="Change your current username: ">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="usernameLabel" text="&quot;User 123&quot;">
+                                          <Label fx:id="usernameLabel" styleClass="secondary" text="&quot;User 123&quot;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -107,7 +107,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Choose Arcane Binder's default theme">
+                                    <Label styleClass="secondary" text="Choose Arcane Binder's default theme">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -141,7 +141,7 @@
                                           <Font size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Choose the accent color for the app">
+                                    <Label styleClass="secondary" text="Choose the accent color for the app">
                                        <font>
                                           <Font size="14.0" />
                                        </font>

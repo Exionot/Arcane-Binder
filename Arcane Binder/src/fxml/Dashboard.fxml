@@ -8,28 +8,33 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="main-container" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DashboardController">
    <top>
-      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" spacing="15.0" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
+      <StackPane styleClass="dash-header" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="logoImageView" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
-               <image>
-                  <Image url="@../../../../../Users/Matthew/Downloads/Arcaena%20Mint%20wBackground.png" />
-               </image>
-            </ImageView>
-            <Label text="Arcane Binder">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" spacing="15.0">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <children>
+                  <ImageView fx:id="logoImageView" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
+                     <image>
+                        <Image url="@../../../../../Users/Matthew/Downloads/Arcaena%20Mint%20wBackground.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Arcane Binder">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
-      </HBox>
+      </StackPane>
    </top>
    <left>
       <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" styleClass="dash-menu" BorderPane.alignment="CENTER">

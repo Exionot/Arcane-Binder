@@ -2,13 +2,17 @@
 	-dark-mode-primary: #121212;
 	-dark-mode-secondary: #2a2a2a;
 	-dark-mode-text-primary: #F0F0F0;
+	-dark-mode-text-secondary: #a8a8a8;
+	
 	-light-mode-primary: #FAF9F6;
 	-light-mode-secondary: #e1e0dd;
 	-light-mode-text-primary: #000000;
+	-light-mode-text-secondary: #4d4d4d;
 	
-	-primary: -light-mode-primary;
+	-primary: red;
 	-secondary: -light-mode-secondary;
 	-text-primary: -light-mode-text-primary;
+	-text-secondary: -light-mode-text-secondary;
 	-accent-color: -light-mode-primary;
 	-accent-text: -text-primary;
 }
@@ -19,13 +23,36 @@
 	-fx-border-radius: 5px;
 }
 
-.label{
+.secondary-button, .text-field, .combo-box, .combo-box .list-cell, .color-picker, .color-palette{
+	-fx-background-color: -secondary;
 	-fx-text-fill: -text-primary;
+	-fx-border-radius: 5px;
+}
+
+.label, .combo-box .list-cell, .color-palette .hyperlink{
+	-fx-text-fill: -text-primary;
+}
+
+.secondary{
+	-fx-text-fill: -text-secondary;
+}
+
+.dash-header{
+	-fx-background-color: -accent-color;
+}
+
+.dash-header .label {
+	-fx-text-fill: -accent-text;
 }
 
 .logo{
 	-fx-scale-x: 1.5;
     -fx-scale-y: 1.5;
+}
+
+.toggled-button{
+	-fx-background-color: -accent-color;
+	-fx-text-fill: -accent-text;
 }
 
 .dash-menu .button{
