@@ -150,7 +150,7 @@
                               </VBox>
                               <HBox spacing="10.0" GridPane.columnIndex="1">
                                  <children>
-                                    <Button fx:id="resetAccentButton" mnemonicParsing="false" onAction="#resetAccent" prefHeight="30.0" text="Reset" />
+                                    <Button fx:id="resetAccentButton" mnemonicParsing="false" onAction="#resetAccent" prefHeight="30.0" styleClass="secondary-button" text="Reset" />
                                     <ColorPicker fx:id="accentColorPicker" onAction="#previewAccent" prefHeight="30.0" />
                                  </children>
                               </HBox>
@@ -163,7 +163,7 @@
                   </VBox>
                   <HBox alignment="CENTER_RIGHT" spacing="10.0">
                      <children>
-                        <Button fx:id="resetSettingsButton" mnemonicParsing="false" onAction="#resetSettings" text="Revert to Default">
+                        <Button fx:id="resetSettingsButton" mnemonicParsing="false" onAction="#resetSettings" styleClass="secondary-button" text="Revert to Default">
                            <font>
                               <Font size="14.0" />
                            </font>
